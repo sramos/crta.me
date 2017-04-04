@@ -3,7 +3,7 @@ class CreateHits < ActiveRecord::Migration[5.0]
     create_table :hits do |t|
       t.string :ip_address
       t.string :referer
-      t.references :url, index: true
+      t.references :stored_url, index: true
       t.timestamps
     end
   end
