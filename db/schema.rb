@@ -15,16 +15,16 @@ ActiveRecord::Schema.define(version: 20170330172754) do
   create_table "hits", force: :cascade do |t|
     t.string   "ip_address"
     t.string   "referer"
-    t.integer  "url_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["url_id"], name: "index_hits_on_url_id"
+    t.integer  "stored_url_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["stored_url_id"], name: "index_hits_on_stored_url_id"
   end
 
-  create_table "urls", force: :cascade do |t|
+  create_table "stored_urls", force: :cascade do |t|
     t.string   "destination"
     t.string   "slug"
-    t.integer  "hits",        default: 0
+    t.integer  "hits_count",  default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
