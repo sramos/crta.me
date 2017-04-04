@@ -3,7 +3,7 @@ class CreateStoredUrls < ActiveRecord::Migration[5.0]
     create_table :stored_urls do |t|
       t.string :destination
       t.string :slug
-      t.integer :hits, default: 0
+      t.integer :hits_count, default: 0
       t.timestamps
     end
   end

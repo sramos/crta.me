@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :stored_urls
+  get "/:slug" => "stored_urls#redirect", as: :url_go
 end
