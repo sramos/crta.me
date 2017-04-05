@@ -43,10 +43,10 @@ class StoredUrlsController < ApplicationController
  private
 
   def url_params
-    params.require(:url).permit(:destination)
+    params.require(:stored_url).permit(:destination)
   end
 
   def hit_params
-    { ip_address: request.remote_id, referer: request.referrer }
+    { ip_address: request.remote_ip, referer: request.referrer }
   end
 end

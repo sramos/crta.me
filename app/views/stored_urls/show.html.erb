@@ -1,12 +1,12 @@
-<h1>Your short URL has been created.</h1>
+<h2>Your short URL has been created.</h2>
 <p>
-  <b>Destination URL:</b>
+  <b>Destination URL:</b><br>
   <%=h @url.destination %>
 </p>
 
 <p>
   <b>Short URL:</b>
-  <%= link_to destination_url(@url.slug) %>
+  <%= link_to destination_url(@url.slug), destination_url(@url.slug) %>
 </p>
 
 
