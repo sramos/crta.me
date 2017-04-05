@@ -1,0 +1,21 @@
+<%= form_for(@url, html: {class: "form-horizontal"}) do |f| %>
+  <div class="row">
+    <% if @url.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@url.errors.count.count, "error") %> saving url destination:</h2>
+        <ul>
+          <% @url.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :destination, "URL:", class: "col_md_2" %>
+      <%= f.text_field :destination, placeholder: "Enter full URL to short", class: "col_md_6 col_xs_12 form_control" %>
+    </div>
+  </div>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>

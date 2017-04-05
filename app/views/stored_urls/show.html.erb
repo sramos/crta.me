@@ -1,0 +1,13 @@
+<h1>Your short URL has been created.</h1>
+<p>
+  <b>Destination URL:</b>
+  <%=h @url.destination %>
+</p>
+
+<p>
+  <b>Short URL:</b>
+  <%= link_to destination_url(@url.slug) %>
+</p>
+
+
+<%= link_to 'Create another short URL', new_stored_url_path %>
