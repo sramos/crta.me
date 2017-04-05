@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(version: 20170330172754) do
   create_table "stored_urls", force: :cascade do |t|
     t.string   "destination"
     t.string   "slug"
-    t.integer  "hits_count",  default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
