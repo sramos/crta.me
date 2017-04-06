@@ -1,3 +1,3 @@
 class Hit < ApplicationRecord
-  belongs_to :url
+  belongs_to :stored_url
 end
