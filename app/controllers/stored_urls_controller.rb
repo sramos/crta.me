@@ -28,7 +28,9 @@ class StoredUrlsController < ApplicationController
   # POST /stored_urls.xml
   # Save new stored_url
   def create
-    @url = StoredUrl.find_or_initialize_by(stored_url_params)
+    uri = stored_url_params[:destination] if params[:stored_url]
+    uri = "http://#{uri}" unless uri.nil? || uri[/^https?:\/\//]
+    @url = StoredUrl.find_or_initialize_by(destination: uri)
     respond_to do |format|
       # If id exists dont save it
       if @url.id || @url.save
