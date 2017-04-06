@@ -1,2 +1,2 @@
 # crta.me
-URL shortner generator
+URL shrtener generator
