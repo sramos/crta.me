@@ -6,7 +6,7 @@
 
 <p>
   <b>Short URL:</b>
-  <%= link_to destination_url(@url.slug), destination_url(@url.slug) %>
+  <%= link_to destination_url(@url.slug), destination_url(@url.slug), data: { turbolinks: false } %>
 </p>
 
 
