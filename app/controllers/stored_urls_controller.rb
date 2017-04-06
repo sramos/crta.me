@@ -14,7 +14,8 @@ class StoredUrlsController < ApplicationController
   end
 
   def show
-    @url = StoredUrl.find_by_id(params[:id])
+    # Use overrided to_param to find stored url
+    redirect_to root_url unless @url = StoredUrl.find_by_slug(params[:id])
   end
 
   # GET /

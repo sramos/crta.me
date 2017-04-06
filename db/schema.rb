@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330172754) do
+ActiveRecord::Schema.define(version: 20170406133520) do
 
   create_table "hits", force: :cascade do |t|
     t.string   "ip_address"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170330172754) do
     t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["slug"], name: "index_stored_urls_on_slug", unique: true
   end
 
 end

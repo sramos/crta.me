@@ -8,6 +8,11 @@ class StoredUrl < ApplicationRecord
 
   before_validation :create_slug, on: :create
 
+  # Override to_param
+  def to_param
+    slug.parameterize
+  end
+
  private
 
   def create_slug
