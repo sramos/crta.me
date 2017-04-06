@@ -7,14 +7,16 @@ class StoredUrl < ApplicationRecord
   validates_uniqueness_of :destination, :slug
 
   before_validation :create_slug, on: :create
+  before_validation :complete_protocol
 
   # Override to_param
   def to_param
     slug.parameterize
   end
 
- private
+  protected
 
+  # Create unique random slug
   def create_slug
     slug_size = 6
     slug = nil
@@ -24,5 +26,10 @@ class StoredUrl < ApplicationRecord
       slug = temp if StoredUrl.find_by_slug(temp).nil?
     end
     self.slug = slug
+  end
+
+  # Add protocol to URL if not exists
+  def complete_protocol
+    self.destination = "http://#{self.destination}" unless self.destination[/^https?:\/\//]
   end
 end
