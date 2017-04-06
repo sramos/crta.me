@@ -27,9 +27,10 @@ class StoredUrlsController < ApplicationController
   # POST /stored_urls.xml
   # Save new stored_url
   def create
-    @url = StoredUrl.new(url_params)
+    @url = StoredUrl.find_or_initialize_by(stored_url_params)
     respond_to do |format|
-      if @url.save
+      # If id exists dont save it
+      if @url.id || @url.save
         flash[:notice] = 'Link was successfully created.'
 	format.html { redirect_to stored_url_url(@url) }
 	format.xml  { render :xml => @url, :status => :created, :location => @url.destination }
@@ -42,7 +43,7 @@ class StoredUrlsController < ApplicationController
 
  private
 
-  def url_params
+  def stored_url_params
     params.require(:stored_url).permit(:destination)
   end
 
