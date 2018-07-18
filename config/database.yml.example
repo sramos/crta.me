@@ -1,15 +1,19 @@
 default: &default
+  adapter: mysql2
+  socket: /var/run/mysqld/mysqld.sock
+  username: crtame 
+  password: crtame 
+  encoding: utf8
+
+test:
   adapter: sqlite3
   pool: 5
   timeout: 5000
-
-test:
-  <<: *default
   database: db/test.sqlite3
 
 development:
   <<: *default
-  database: db/development.sqlite3 
+  database: crtame 
 
 production:
   url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') if ENV['DATABASE_URL'] %>
