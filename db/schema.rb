@@ -12,21 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20170406133520) do
 
-  create_table "hits", force: :cascade do |t|
+  create_table "hits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "ip_address"
     t.string   "referer"
     t.integer  "stored_url_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["stored_url_id"], name: "index_hits_on_stored_url_id"
+    t.index ["stored_url_id"], name: "index_hits_on_stored_url_id", using: :btree
   end
 
-  create_table "stored_urls", force: :cascade do |t|
+  create_table "stored_urls", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "destination"
     t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["slug"], name: "index_stored_urls_on_slug", unique: true
+    t.index ["slug"], name: "index_stored_urls_on_slug", unique: true, using: :btree
   end
 
 end

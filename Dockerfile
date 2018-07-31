@@ -29,4 +29,5 @@ RUN bundle exec rake RAILS_ENV=production DATABASE_URL=mysql2://user:pass@127.0.
 VOLUME ["/railsapp/public"]
 
 # Start the application with Puma
-CMD bundle exec puma -C config/puma.rb
+EXPOSE 3000
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
