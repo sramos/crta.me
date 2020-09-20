@@ -7,6 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rack', '2.2.3'
 gem 'rails', '~> 5.0.7.2'
 # Use mysql as the database for Active Record
 gem 'mysql2'
@@ -34,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'websocket-driver', '~> 0.6.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
